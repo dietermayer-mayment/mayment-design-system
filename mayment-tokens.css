@@ -1,0 +1,79 @@
+/*
+ * ============================================================
+ * MAYMENT DESIGN SYSTEM — Tokens
+ * ============================================================
+ * Brand-Farben, Typografie und Design-Werte für alle MayMent Apps.
+ * Diese Datei hier anpassen um das Brand zentral zu steuern.
+ *
+ * Einbindung via jsDelivr CDN:
+ * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-tokens.css">
+ *
+ * Google Fonts (im <head> einbinden):
+ * <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+ * ============================================================
+ */
+
+:root {
+    /* --- Hauptfarben --- */
+    --color-primary:   #1D3557;   /* MayMent Dunkelblau */
+    --color-secondary: #457B9D;   /* MayMent Mittelblau */
+    --color-accent:    #E9C46A;   /* MayMent Gold */
+
+    /* --- Neutrale Farben --- */
+    --color-light:     #F8FAFC;
+    --color-white:     #ffffff;
+
+    /* --- Status-Farben --- */
+    --color-danger:    #EF4444;
+    --color-success:   #10B981;
+    --color-warning:   #F59E0B;
+
+    /* --- Grautöne (Slate-Skala) --- */
+    --color-slate-50:  #F8FAFC;
+    --color-slate-100: #F1F5F9;
+    --color-slate-200: #E2E8F0;
+    --color-slate-300: #CBD5E1;
+    --color-slate-400: #94A3B8;
+    --color-slate-500: #64748B;
+    --color-slate-600: #475569;
+    --color-slate-700: #334155;
+    --color-slate-800: #1E293B;
+
+    /* --- Typografie --- */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body:    'Open Sans', sans-serif;
+    --font-data:    'Lato', sans-serif;
+    --font-brand:   'Montserrat', sans-serif;
+
+    /* --- Abstände --- */
+    --spacing-1:  0.25rem;
+    --spacing-2:  0.5rem;
+    --spacing-3:  0.75rem;
+    --spacing-4:  1rem;
+    --spacing-6:  1.5rem;
+    --spacing-8:  2rem;
+    --spacing-12: 3rem;
+
+    /* --- Eckenradius --- */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+
+    /* --- Schatten --- */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    /* --- Übergänge --- */
+    --transition-fast:   all 0.15s ease;
+    --transition-normal: all 0.2s ease;
+    --transition-slow:   all 0.5s ease-out;
+
+    /* --- Breakpoints (nur als Referenz, in CSS nicht direkt nutzbar) ---
+     * sm:  640px
+     * md:  768px
+     * lg: 1024px
+     */
+}

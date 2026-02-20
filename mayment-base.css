@@ -1,0 +1,480 @@
+/*
+ * ============================================================
+ * MAYMENT DESIGN SYSTEM — Base & Utilities
+ * ============================================================
+ * Utility-Klassen und Reset-Styles für alle MayMent Apps.
+ * Setzt mayment-tokens.css voraus.
+ *
+ * Einbindung via jsDelivr CDN:
+ * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-base.css">
+ * ============================================================
+ */
+
+
+/* ============================================================
+   RESET & BASE
+   ============================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    color-scheme: light;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-light);
+    color: var(--color-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+button {
+    background: none;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+}
+
+input, textarea, select {
+    border: 1px solid var(--color-slate-200);
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 2px rgba(233, 196, 106, 0.2);
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.max-w-2xl  { max-width: 42rem; }
+.max-w-4xl  { max-width: 56rem; }
+.max-w-6xl  { max-width: 72rem; }
+.mx-auto    { margin-left: auto; margin-right: auto; }
+
+.min-h-screen  { min-height: 100vh; }
+.h-full        { height: 100%; }
+.w-full        { width: 100%; }
+.overflow-hidden   { overflow: hidden; }
+.overflow-x-hidden { overflow-x: hidden; }
+
+
+/* ============================================================
+   FLEXBOX
+   ============================================================ */
+
+.flex         { display: flex; }
+.inline-flex  { display: inline-flex; }
+.flex-col     { flex-direction: column; }
+.flex-row     { flex-direction: row; }
+.flex-wrap    { flex-wrap: wrap; }
+.flex-grow    { flex-grow: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+.items-center  { align-items: center; }
+.items-start   { align-items: flex-start; }
+.items-end     { align-items: flex-end; }
+.justify-center  { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end     { justify-content: flex-end; }
+.self-start      { align-self: flex-start; }
+.self-end        { align-self: flex-end; }
+.mt-auto         { margin-top: auto; }
+
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+.space-y-2  > * + * { margin-top: 0.5rem; }
+.space-y-4  > * + * { margin-top: 1rem; }
+.space-y-6  > * + * { margin-top: 1.5rem; }
+.space-y-12 > * + * { margin-top: 3rem; }
+
+
+/* ============================================================
+   GRID
+   ============================================================ */
+
+.grid          { display: grid; }
+.grid-cols-1   { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+.grid-cols-2   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid-cols-3   { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid-cols-4   { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+@media (min-width: 640px) {
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 768px) {
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .md\:flex-row    { flex-direction: row; }
+    .md\:block       { display: block; }
+    .md\:text-left   { text-align: left; }
+    .md\:h-10        { height: 2.5rem; }
+    .md\:h-12        { height: 3rem; }
+}
+
+@media (min-width: 1024px) {
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+
+
+/* ============================================================
+   DISPLAY
+   ============================================================ */
+
+.block        { display: block; }
+.inline-block { display: inline-block; }
+.inline       { display: inline; }
+.hidden       { display: none; }
+
+
+/* ============================================================
+   SPACING — Padding
+   ============================================================ */
+
+.p-2  { padding: 0.5rem; }
+.p-4  { padding: 1rem; }
+.p-5  { padding: 1.25rem; }
+.p-6  { padding: 1.5rem; }
+.p-8  { padding: 2rem; }
+
+.px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+.px-4 { padding-left: 1rem;    padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem;  padding-right: 1.5rem; }
+.px-8 { padding-left: 2rem;    padding-right: 2rem; }
+
+.py-1 { padding-top: 0.25rem;  padding-bottom: 0.25rem; }
+.py-2 { padding-top: 0.5rem;   padding-bottom: 0.5rem; }
+.py-3 { padding-top: 0.75rem;  padding-bottom: 0.75rem; }
+.py-4 { padding-top: 1rem;     padding-bottom: 1rem; }
+.py-8 { padding-top: 2rem;     padding-bottom: 2rem; }
+.py-12 { padding-top: 3rem;    padding-bottom: 3rem; }
+
+.pt-4 { padding-top: 1rem; }
+.pt-8 { padding-top: 2rem; }
+.pb-4 { padding-bottom: 1rem; }
+.pb-8 { padding-bottom: 2rem; }
+
+
+/* ============================================================
+   SPACING — Margin
+   ============================================================ */
+
+.m-0  { margin: 0; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+
+
+/* ============================================================
+   FARBEN — Hintergrund
+   ============================================================ */
+
+.bg-white     { background-color: var(--color-white); }
+.bg-light     { background-color: var(--color-light); }
+.bg-primary   { background-color: var(--color-primary); }
+.bg-secondary { background-color: var(--color-secondary); }
+.bg-accent    { background-color: var(--color-accent); }
+.bg-slate-50  { background-color: var(--color-slate-50); }
+.bg-slate-100 { background-color: var(--color-slate-100); }
+.bg-slate-200 { background-color: var(--color-slate-200); }
+.bg-success   { background-color: var(--color-success); }
+.bg-danger    { background-color: var(--color-danger); }
+.bg-warning   { background-color: var(--color-warning); }
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+.bg-gradient-accent {
+    background: linear-gradient(135deg, var(--color-accent) 0%, #f0a500 100%);
+}
+
+
+/* ============================================================
+   FARBEN — Text
+   ============================================================ */
+
+.text-white     { color: var(--color-white) !important; }
+.text-primary   { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
+.text-accent    { color: var(--color-accent); }
+.text-success   { color: var(--color-success); }
+.text-danger    { color: var(--color-danger); }
+.text-warning   { color: var(--color-warning); }
+.text-slate-200 { color: var(--color-slate-200); }
+.text-slate-300 { color: var(--color-slate-300); }
+.text-slate-400 { color: var(--color-slate-400); }
+.text-slate-500 { color: var(--color-slate-500); }
+.text-slate-600 { color: var(--color-slate-600); }
+
+
+/* ============================================================
+   TYPOGRAFIE
+   ============================================================ */
+
+.font-sans    { font-family: var(--font-body); }
+.font-heading { font-family: var(--font-heading); }
+.font-brand   { font-family: var(--font-brand); }
+.font-data    { font-family: var(--font-data); }
+
+.text-xs   { font-size: 0.75rem; }
+.text-sm   { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg   { font-size: 1.125rem; }
+.text-xl   { font-size: 1.25rem; }
+.text-2xl  { font-size: 1.5rem; }
+.text-3xl  { font-size: 1.875rem; }
+.text-4xl  { font-size: 2.25rem; }
+.text-5xl  { font-size: 3rem; }
+
+.font-light    { font-weight: 300; }
+.font-normal   { font-weight: 400; }
+.font-semibold { font-weight: 600; }
+.font-bold     { font-weight: 700; }
+.font-black    { font-weight: 900; }
+
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+.uppercase   { text-transform: uppercase; }
+.lowercase   { text-transform: lowercase; }
+.normal-case { text-transform: none; }
+.italic      { font-style: italic; }
+.underline   { text-decoration: underline; }
+
+.leading-tight   { line-height: 1.25; }
+.leading-snug    { line-height: 1.375; }
+.leading-normal  { line-height: 1.5; }
+.leading-relaxed { line-height: 1.625; }
+
+.tracking-tighter { letter-spacing: -0.05em; }
+.tracking-tight   { letter-spacing: -0.025em; }
+.tracking-normal  { letter-spacing: 0; }
+.tracking-wide    { letter-spacing: 0.025em; }
+.tracking-wider   { letter-spacing: 0.05em; }
+.tracking-widest  { letter-spacing: 0.1em; }
+
+
+/* ============================================================
+   RAHMEN & ECKEN
+   ============================================================ */
+
+.rounded-sm   { border-radius: var(--radius-sm); }
+.rounded-md   { border-radius: var(--radius-md); }
+.rounded-lg   { border-radius: var(--radius-lg); }
+.rounded-xl   { border-radius: var(--radius-xl); }
+.rounded-2xl  { border-radius: 1rem; }
+.rounded-full { border-radius: 9999px; }
+
+.border    { border: 1px solid var(--color-slate-200); }
+.border-2  { border-width: 2px; border-style: solid; }
+.border-t  { border-top: 1px solid var(--color-slate-200); }
+.border-b  { border-bottom: 1px solid var(--color-slate-200); }
+.border-t-4 { border-top-width: 4px; border-top-style: solid; }
+
+.border-primary   { border-color: var(--color-primary); }
+.border-secondary { border-color: var(--color-secondary); }
+.border-accent    { border-color: var(--color-accent); }
+.border-slate-100 { border-color: var(--color-slate-100); }
+.border-slate-200 { border-color: var(--color-slate-200); }
+.border-slate-300 { border-color: var(--color-slate-300); }
+
+
+/* ============================================================
+   SCHATTEN
+   ============================================================ */
+
+.shadow-sm    { box-shadow: var(--shadow-sm); }
+.shadow-md    { box-shadow: var(--shadow-md); }
+.shadow-lg    { box-shadow: var(--shadow-lg); }
+.shadow-xl    { box-shadow: var(--shadow-xl); }
+.shadow-inner { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); }
+.shadow-none  { box-shadow: none; }
+
+
+/* ============================================================
+   GRÖßEN
+   ============================================================ */
+
+.h-2   { height: 0.5rem; }
+.h-4   { height: 1rem; }
+.h-5   { height: 1.25rem; }
+.h-6   { height: 1.5rem; }
+.h-8   { height: 2rem; }
+.h-10  { height: 2.5rem; }
+.h-12  { height: 3rem; }
+.h-16  { height: 4rem; }
+.h-20  { height: 5rem; }
+.h-80  { height: 20rem; }
+
+.w-4   { width: 1rem; }
+.w-5   { width: 1.25rem; }
+.w-6   { width: 1.5rem; }
+.w-8   { width: 2rem; }
+.w-10  { width: 2.5rem; }
+.w-12  { width: 3rem; }
+.w-16  { width: 4rem; }
+.w-24  { width: 6rem; }
+.w-32  { width: 8rem; }
+.w-48  { width: 12rem; }
+.w-64  { width: 16rem; }
+
+
+/* ============================================================
+   POSITION & Z-INDEX
+   ============================================================ */
+
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+.top-0    { top: 0; }
+.z-10     { z-index: 10; }
+.z-50     { z-index: 50; }
+
+
+/* ============================================================
+   EFFEKTE & ÜBERGÄNGE
+   ============================================================ */
+
+.opacity-90 { opacity: 0.9; }
+.opacity-75 { opacity: 0.75; }
+.opacity-50 { opacity: 0.50; }
+
+.rotate-180 { transform: rotate(180deg); }
+
+.transition-all    { transition: var(--transition-normal); }
+.transition-colors { transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease; }
+.duration-500      { transition-duration: 500ms; }
+.ease-out          { transition-timing-function: ease-out; }
+
+.object-contain { object-fit: contain; }
+.object-cover   { object-fit: cover; }
+
+/* Hover-Utilities */
+.hover\:scale-105:hover      { transform: scale(1.05); }
+.hover\:bg-light:hover       { background-color: var(--color-light); }
+.hover\:bg-secondary:hover   { background-color: var(--color-secondary); }
+.hover\:bg-primary:hover     { background-color: var(--color-primary); }
+.hover\:text-primary:hover   { color: var(--color-primary); }
+.hover\:text-secondary:hover { color: var(--color-secondary); }
+.hover\:text-accent:hover    { color: var(--color-accent); }
+.hover\:text-white:hover     { color: var(--color-white); }
+.hover\:text-red-500:hover   { color: #ef4444; }
+.hover\:border-accent:hover     { border-color: var(--color-accent); }
+.hover\:border-secondary:hover  { border-color: var(--color-secondary); }
+
+/* Group-Hover */
+.group:hover .group-hover\:text-accent    { color: var(--color-accent); }
+.group:hover .group-hover\:text-secondary { color: var(--color-secondary); }
+.group:hover .group-hover\:text-red-500   { color: #ef4444; }
+
+
+/* ============================================================
+   ANIMATIONEN
+   ============================================================ */
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.animate-in {
+    animation: fadeIn 0.5s ease-out;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.5; }
+}
+
+
+/* ============================================================
+   PRINT-STYLES
+   ============================================================ */
+
+.no-print    { display: block; }
+.print-only  { display: none; }
+
+@media print {
+    .no-print   { display: none !important; }
+    .print-only { display: flex !important; }
+
+    header { display: none !important; }
+    footer { display: none !important; }
+
+    * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        box-shadow: none !important;
+    }
+
+    .sticky { position: relative !important; }
+
+    @page { margin: 1.5cm; }
+
+    section, .bg-white, .bg-primary {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    body { background-color: #fff !important; }
+
+    .space-y-12 > * + * { margin-top: 1.5rem; }
+    .py-12 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+    .p-8   { padding: 1.25rem; }
+}
