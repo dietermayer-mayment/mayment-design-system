@@ -6,7 +6,12 @@
  * Setzt mayment-tokens.css voraus.
  *
  * Einbindung via jsDelivr CDN:
- * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-base.css">
+ * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@v1.2.0/mayment-base.css">
+ *
+ * WICHTIG — CSS-Kaskadenregel:
+ * Alle @media-Breakpoint-Blöcke (sm:, md:, lg:) stehen am ENDE der Datei,
+ * NACH allen Base-Utilities. So können responsive Klassen (.lg:flex) die
+ * Base-Klassen (.hidden) korrekt überschreiben.
  * ============================================================
  */
 
@@ -68,6 +73,19 @@ footer ul {
 
 
 /* ============================================================
+   DISPLAY
+   ============================================================ */
+
+.block        { display: block; }
+.inline-block { display: inline-block; }
+.inline       { display: inline; }
+.hidden       { display: none; }
+.flex         { display: flex; }
+.inline-flex  { display: inline-flex; }
+.grid         { display: grid; }
+
+
+/* ============================================================
    LAYOUT
    ============================================================ */
 
@@ -94,8 +112,6 @@ footer ul {
    FLEXBOX
    ============================================================ */
 
-.flex         { display: flex; }
-.inline-flex  { display: inline-flex; }
 .flex-col     { flex-direction: column; }
 .flex-row     { flex-direction: row; }
 .flex-wrap    { flex-wrap: wrap; }
@@ -128,96 +144,10 @@ footer ul {
    GRID
    ============================================================ */
 
-.grid          { display: grid; }
 .grid-cols-1   { grid-template-columns: repeat(1, minmax(0, 1fr)); }
 .grid-cols-2   { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .grid-cols-3   { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .grid-cols-4   { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-@media (min-width: 640px) {
-    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .sm\:inline      { display: inline; }
-    .sm\:text-sm     { font-size: 0.875rem; line-height: 1.25rem; }
-}
-
-@media (min-width: 768px) {
-    /* Grid */
-    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-
-    /* Display */
-    .md\:flex     { display: flex; }
-    .md\:flex-row { flex-direction: row; }
-    .md\:block    { display: block; }
-    .md\:hidden   { display: none; }
-    .md\:inline   { display: inline; }
-
-    /* Position */
-    .md\:absolute { position: absolute; }
-    .md\:top-1\/2 { top: 50%; }
-    .md\:-right-2 { right: -0.5rem; }
-
-    /* Transform (für Connecting-Arrows) */
-    .md\:translate-x-1\/2  { transform: translateX(50%); }
-    .md\:-translate-y-1\/2 { transform: translateY(-50%); }
-
-    /* Padding */
-    .md\:p-8  { padding: 2rem; }
-    .md\:p-10 { padding: 2.5rem; }
-    .md\:p-12 { padding: 3rem; }
-    .md\:px-0 { padding-left: 0; padding-right: 0; }
-    .md\:py-0 { padding-top: 0; padding-bottom: 0; }
-
-    /* Gap */
-    .md\:gap-4 { gap: 1rem; }
-    .md\:gap-6 { gap: 1.5rem; }
-    .md\:gap-8 { gap: 2rem; }
-
-    /* Spacing */
-    .md\:space-y-0 > * + * { margin-top: 0; }
-
-    /* Sizing */
-    .md\:h-10    { height: 2.5rem; }
-    .md\:h-12    { height: 3rem; }
-    .md\:min-w-0 { min-width: 0; }
-    .md\:max-w-\[75\%\] { max-width: 75%; }
-
-    /* Typography */
-    .md\:text-sm     { font-size: 0.875rem;  line-height: 1.25rem; }
-    .md\:text-base   { font-size: 1rem;      line-height: 1.5rem; }
-    .md\:text-2xl    { font-size: 1.5rem;    line-height: 2rem; }
-    .md\:text-3xl    { font-size: 1.875rem;  line-height: 2.25rem; }
-    .md\:text-4xl    { font-size: 2.25rem;   line-height: 2.5rem; }
-    .md\:text-left   { text-align: left; }
-    .md\:text-center { text-align: center; }
-}
-
-@media (min-width: 1024px) {
-    /* Grid */
-    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    /* Display */
-    .lg\:flex   { display: flex; }
-    .lg\:hidden { display: none; }
-    .lg\:block  { display: block; }
-
-    /* Gap */
-    .lg\:gap-4 { gap: 1rem; }
-}
-
-
-/* ============================================================
-   DISPLAY
-   ============================================================ */
-
-.block        { display: block; }
-.inline-block { display: inline-block; }
-.inline       { display: inline; }
-.hidden       { display: none; }
 
 
 /* ============================================================
@@ -291,7 +221,7 @@ footer ul {
    FARBEN — Text
    ============================================================ */
 
-.text-white     { color: var(--color-white) !important; }
+.text-white     { color: var(--color-white); }
 .text-primary   { color: var(--color-primary); }
 .text-secondary { color: var(--color-secondary); }
 .text-accent    { color: var(--color-accent); }
@@ -531,4 +461,89 @@ footer ul {
     .space-y-12 > * + * { margin-top: 1.5rem; }
     .py-12 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
     .p-8   { padding: 1.25rem; }
+}
+
+
+/* ============================================================
+   RESPONSIVE UTILITIES
+   WICHTIG: Diese Blöcke müssen am ENDE der Datei stehen,
+   damit sie die Base-Utilities (z.B. .hidden) überschreiben können.
+   ============================================================ */
+
+@media (min-width: 640px) {
+    .sm\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sm\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sm\:flex    { display: flex; }
+    .sm\:block   { display: block; }
+    .sm\:hidden  { display: none; }
+    .sm\:inline  { display: inline; }
+    .sm\:text-sm { font-size: 0.875rem; line-height: 1.25rem; }
+}
+
+@media (min-width: 768px) {
+    /* Grid */
+    .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .md\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .md\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .md\:grid-cols-5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+
+    /* Display */
+    .md\:flex     { display: flex; }
+    .md\:flex-row { flex-direction: row; }
+    .md\:block    { display: block; }
+    .md\:hidden   { display: none; }
+    .md\:inline   { display: inline; }
+
+    /* Position */
+    .md\:absolute { position: absolute; }
+    .md\:top-1\/2 { top: 50%; }
+    .md\:-right-2 { right: -0.5rem; }
+
+    /* Transform */
+    .md\:translate-x-1\/2  { transform: translateX(50%); }
+    .md\:-translate-y-1\/2 { transform: translateY(-50%); }
+
+    /* Padding */
+    .md\:p-8  { padding: 2rem; }
+    .md\:p-10 { padding: 2.5rem; }
+    .md\:p-12 { padding: 3rem; }
+    .md\:px-0 { padding-left: 0; padding-right: 0; }
+    .md\:py-0 { padding-top: 0; padding-bottom: 0; }
+
+    /* Gap */
+    .md\:gap-4 { gap: 1rem; }
+    .md\:gap-6 { gap: 1.5rem; }
+    .md\:gap-8 { gap: 2rem; }
+
+    /* Spacing */
+    .md\:space-y-0 > * + * { margin-top: 0; }
+
+    /* Sizing */
+    .md\:h-10    { height: 2.5rem; }
+    .md\:h-12    { height: 3rem; }
+    .md\:min-w-0 { min-width: 0; }
+    .md\:max-w-\[75\%\] { max-width: 75%; }
+
+    /* Typography */
+    .md\:text-sm     { font-size: 0.875rem;  line-height: 1.25rem; }
+    .md\:text-base   { font-size: 1rem;      line-height: 1.5rem; }
+    .md\:text-2xl    { font-size: 1.5rem;    line-height: 2rem; }
+    .md\:text-3xl    { font-size: 1.875rem;  line-height: 2.25rem; }
+    .md\:text-4xl    { font-size: 2.25rem;   line-height: 2.5rem; }
+    .md\:text-left   { text-align: left; }
+    .md\:text-center { text-align: center; }
+}
+
+@media (min-width: 1024px) {
+    /* Grid */
+    .lg\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .lg\:grid-cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    /* Display */
+    .lg\:flex   { display: flex; }
+    .lg\:hidden { display: none; }
+    .lg\:block  { display: block; }
+
+    /* Gap */
+    .lg\:gap-4 { gap: 1rem; }
 }
