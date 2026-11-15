@@ -67,3 +67,4 @@ Ein eigener Baubrief/Auftrag für das Design System existiert nicht; relevante F
 - Änderungen auf `main` wirken sofort in mehreren Apps: vorher mit dem Entwicklungsleiter abstimmen, wenn sie mehr als additiv sind.
 - Widersprüche zwischen Code und Doku nicht selbst in der Doku beheben, sondern melden.
 - **Dieses Repo ist öffentlich:** keine internen Hostnamen, Adressen, Zugangsdaten oder vertraulichen Inhalte einchecken.
+- **Fehler sammeln:** Eigene Fehler ehrlich und zeitnah im zentralen Fehlerlog der Entwicklungsleitung eintragen (internes Repo, siehe Entwicklungsleiter). Keine Interna in diesem öffentlichen Repo.
