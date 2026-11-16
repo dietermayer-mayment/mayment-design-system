@@ -6,7 +6,7 @@
  * Setzt mayment-tokens.css voraus.
  *
  * Einbindung via jsDelivr CDN:
- * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@v1.3.2/mayment-base.css">
+ * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@v1.4.0/mayment-base.css">
  *
  * WICHTIG — CSS-Kaskadenregel:
  * Alle @media-Breakpoint-Blöcke (sm:, md:, lg:) stehen am ENDE der Datei,

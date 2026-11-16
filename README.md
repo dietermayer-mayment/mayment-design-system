@@ -8,6 +8,8 @@ Gemeinsame CSS-Basis für alle MayMent Web-Apps und die Homepage.
 |---|---|
 | `mayment-tokens.css` | Brand-Farben, Fonts, Spacing-Skala (hier anpassen) |
 | `mayment-base.css` | Reset, alle Utility-Klassen, Animationen, Print-Styles |
+| `mayment-fonts.css` | `@font-face`-Regeln für die selbst gehosteten Schriften (ab v1.4.0) |
+| `fonts/` | Schriftdateien (woff2) und Lizenztexte, je Familie ein Unterordner |
 
 ## Einbindung
 
@@ -15,8 +17,8 @@ Gemeinsame CSS-Basis für alle MayMent Web-Apps und die Homepage.
 
 ```html
 <head>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Schriften: selbst gehostet, siehe Abschnitt „Schriften“ -->
+  <link rel="stylesheet" href="css/mayment-fonts.css">
 
   <!-- MayMent Design System -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-tokens.css">
@@ -31,9 +33,38 @@ Gemeinsame CSS-Basis für alle MayMent Web-Apps und die Homepage.
 
 Dateien herunterladen und direkt im Projekt einbinden:
 ```html
+<link rel="stylesheet" href="mayment-fonts.css">
 <link rel="stylesheet" href="mayment-tokens.css">
 <link rel="stylesheet" href="mayment-base.css">
 ```
+
+## Schriften
+
+Die Schriften werden **selbst gehostet** und mit dem Design System mitgeliefert
+(`mayment-fonts.css` + Ordner `fonts/`). Enthalten sind nur die benötigten Schnitte,
+jeweils als woff2 in den Subsets latin und latin-ext (latin-ext lädt der Browser nur bei Bedarf):
+
+| Familie | Schnitte | Token |
+|---|---|---|
+| Poppins | 600, 700 | `--font-heading` |
+| Open Sans | 400, 600 | `--font-body` |
+| Lato | 400, 700 | `--font-data` |
+| Montserrat | 700 | `--font-brand` |
+
+**Einbindung:** `mayment-fonts.css` und den Ordner `fonts/` gemeinsam in die App kopieren
+(oder per Build/Submodul einbinden) und `mayment-fonts.css` vor `mayment-tokens.css` laden.
+Die Pfade in `mayment-fonts.css` sind relativ (`fonts/<familie>/…`), der Ordner `fonts/`
+muss also neben der CSS-Datei liegen.
+
+> **DSGVO-Hinweis:** Schriften **nicht** von Google Fonts laden (`fonts.googleapis.com`,
+> `fonts.gstatic.com`). Dabei überträgt der Browser die IP-Adresse jedes Besuchers ohne
+> Einwilligung an Google; das LG München hat das 2022 als Datenschutzverstoß gewertet
+> (Az. 3 O 17493/20). Auch das Laden der Schriften über ein CDN ist eine Übertragung an
+> Dritte – am sichersten liegen die Dateien auf dem eigenen Server der App.
+
+**Lizenz:** Alle vier Familien stehen unter der SIL Open Font License 1.1; die Lizenztexte
+liegen in `fonts/<familie>/OFL.txt` und müssen beim Kopieren mitgenommen werden.
+Quelle der Dateien: [Fontsource](https://fontsource.org) (`@fontsource/<familie>`).
 
 ## Farben
 

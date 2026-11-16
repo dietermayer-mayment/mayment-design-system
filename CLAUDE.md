@@ -24,10 +24,12 @@ Nur plain CSS (Custom Properties), kein package.json, kein Node, keine Tests, ke
 mayment-tokens.css   :root-Variablen: Farben, Slate-Skala, Fonts, Spacing, Radius, Schatten, Transitions
 mayment-base.css     Reset/Base, Utility-Klassen, Animationen, Hover/Group-Hover,
                      @media print (no-print/print-only), danach Responsive-Blöcke sm/md/lg
+mayment-fonts.css    @font-face für die selbst gehosteten Schriften (relative Pfade auf fonts/)
+fonts/<familie>/     woff2-Dateien + OFL.txt je Schriftfamilie
 README.md            Einbindung, Farb-/Font-Tabellen, Klassenbeispiele, Liste der Apps
 ```
 - `mayment-base.css` setzt `mayment-tokens.css` voraus (Reihenfolge: tokens, base, App-CSS).
-- Fonts (Poppins, Open Sans, Lato, Montserrat) werden **nicht** mitgeliefert; Apps binden Google Fonts selbst ein (Link im README).
+- Fonts (Poppins, Open Sans, Lato, Montserrat) werden ab v1.4.0 **selbst gehostet** mitgeliefert: `mayment-fonts.css` + `fonts/<familie>/` (woff2, latin/latin-ext, OFL.txt). Kein Google Fonts (DSGVO).
 - Breakpoints: sm 640px, md 768px, lg 1024px (nur als Kommentar in tokens; CSS-Variablen gehen in `@media` nicht).
 
 ## Befehle

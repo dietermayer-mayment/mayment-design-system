@@ -8,8 +8,9 @@
  * Einbindung via jsDelivr CDN:
  * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-tokens.css">
  *
- * Google Fonts (im <head> einbinden):
- * <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins:wght@600;700&family=Lato:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+ * Schriften selbst hosten: mayment-fonts.css + fonts/ in die App kopieren
+ * bzw. per Build einbinden (vor dieser Datei laden).
+ * Nicht von Google Fonts laden (DSGVO: überträgt Besucher-IPs an Google).
  * ============================================================
  */
 
