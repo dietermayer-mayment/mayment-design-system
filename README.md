@@ -130,10 +130,16 @@ Quelle der Dateien: [Fontsource](https://fontsource.org) (`@fontsource/<familie>
 
 ## Projekt-Apps
 
-| App | Repo |
-|---|---|
-| Reifegrad-Check Instandhaltung | `mayment-reifegrad-check-instandhaltung` |
-| MayMent Homepage | *(in Planung)* |
+Öffentlich erreichbare Apps, die das Design System nutzen:
+
+| App | Repo | Einbindung |
+|---|---|---|
+| Reifegrad-Check Instandhaltung | `mayment-reifegrad-check-instandhaltung` | jsDelivr `@main` |
+| Feedback-Tool | `mayment-customer-feedback` | jsDelivr `@main` |
+| ECM (EU) 2019/779 Experte | `MayMent-ECM-EU-2019-779-Experte` | jsDelivr `@v1.2.0` |
+
+Dazu kommen interne Anwendungen (als Git-Submodul oder lokale Kopie eingebunden).
+Apps mit `@main` erhalten jede Änderung auf `main` sofort, daher sind Änderungen dort nur additiv.
 
 ## Brand-Werte anpassen
 

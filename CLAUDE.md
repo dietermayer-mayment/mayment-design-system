@@ -49,7 +49,7 @@ oder in einer Consumer-App gegentesten (z. B. Submodul in Duktus/Firmenwissen au
 - Klassennamen mit Doppelpunkt sind im CSS escaped (`.md\:grid-cols-3`).
 - Brand-Werte nur in `mayment-tokens.css` ändern; Utilities referenzieren `var(--…)`.
 - Nur **additive** Änderungen in Minor/Patch; Umbenennen/Entfernen von Klassen oder Tokens bricht `@main`-Consumer.
-- README-Tabelle „Projekt-Apps“ ist veraltet (nennt nur Reifegrad-Check) – bei Gelegenheit nachziehen.
+- README-Tabelle „Projekt-Apps“ nennt nur die öffentlich erreichbaren Apps; interne Projekte nicht namentlich ins öffentliche README.
 - Umgebungsvariablen/Secrets: keine im Projekt; Repo ist öffentlich, also niemals Zugangsdaten oder interne Infos committen.
 
 ## Anforderungen & Dokumentation
