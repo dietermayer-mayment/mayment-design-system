@@ -3,7 +3,9 @@
 ## Zweck
 Gemeinsame CSS-Basis (Brand-Tokens + Utility-Klassen im Tailwind-Stil) für alle MayMent-Web-Apps und die geplante Homepage.
 Reines Stylesheet-Repo: keine Laufzeit, kein Build, keine Logos (nur Farben/Fonts/Abstände).
-Das Repo ist **öffentlich** (Voraussetzung für die Auslieferung über jsDelivr und für Submodule in privaten Repos).
+Das Repo ist **öffentlich** (Voraussetzung für die Auslieferung über `https://ds.mayment.de/`, früher jsDelivr, und für Submodule in privaten Repos).
+Auslieferung: `ds.mayment.de` holt alle 5 min `main` und alle Tags aus diesem Repo (nur die drei CSS-Dateien und `fonts/`);
+`/` = Stand `main` (5 min Cache), `/vX.Y.Z/` = Tag (1 Jahr, immutable).
 
 ## Wer nutzt es (Stand: November 2026)
 | Projekt | Einbindung | Version |
@@ -11,12 +13,12 @@ Das Repo ist **öffentlich** (Voraussetzung für die Auslieferung über jsDelivr
 | mayment-duktus | Git-Submodul `resources/design-system`, `@import` in `resources/css/app.css` | Submodul-Commit 85f89bf (v1.3.2) |
 | mayment-firmenwissen | Git-Submodul `resources/design-system`, `@import` in `resources/css/app.css` | Submodul-Commit 85f89bf (v1.3.2) |
 | mayment-reisekosten | lokale Kopie `public/css/mayment-*.css` (aktuell inhaltsgleich mit v1.3.2) | – |
-| mayment-customer-feedback | jsDelivr `@main` in `index.html` | main |
-| mayment-reifegrad-check-instandhaltung | jsDelivr `@main` in `index.html` | main |
-| MayMent-ECM-EU-2019-779-Experte | jsDelivr `@v1.2.0` in `index.html` | v1.2.0 |
+| mayment-customer-feedback | `https://ds.mayment.de/` in `index.html` | main |
+| mayment-reifegrad-check-instandhaltung | `https://ds.mayment.de/` in `index.html` | main |
+| MayMent-ECM-EU-2019-779-Experte | `https://ds.mayment.de/v1.2.0/` in `index.html` | v1.2.0 |
 
 Zusätzlich lokale Kopie in `mayment-duktus/docs/entwurf/design-system/` (Entwurf).
-Folge: Jede Änderung auf `main` wirkt **sofort** in den `@main`-Apps (nach jsDelivr-Cache). **Das ist so gewollt** (Entscheidung Dieter Mayer, 15.11.2026): Design-Änderungen sollen ohne Einzelfreigabe direkt in diesen Apps ankommen. Deshalb gilt: Breaking Changes vermeiden, vor dem Push auf `main` die Auswirkung auf die `@main`-Apps bedenken.
+Folge: Jede Änderung auf `main` wirkt **sofort** in den `main`-Apps (nach ca. 5 min Abholung + 5 min Cache). **Das ist so gewollt** (Entscheidung Dieter Mayer, 15.11.2026): Design-Änderungen sollen ohne Einzelfreigabe direkt in diesen Apps ankommen. Deshalb gilt: Breaking Changes vermeiden, vor dem Push auf `main` die Auswirkung auf die `@main`-Apps bedenken.
 
 ## Tech-Stack & Struktur
 Nur plain CSS (Custom Properties), kein package.json, kein Node, keine Tests, kein Linter, keine CI.
@@ -38,10 +40,10 @@ oder in einer Consumer-App gegentesten (z. B. Submodul in Duktus/Firmenwissen au
 
 ## Versionierung / Release
 - SemVer über **Git-Tags** `vX.Y.Z` auf `main` (bisher v1.1.0 … v1.3.2; Tags mit Nachricht, z. B. `git tag -a v1.3.3 -m "..."`).
-- Die Versionsnummer steht sonst nur im Header-Kommentar von `mayment-base.css` (CDN-Beispiel `@vX.Y.Z`) – beim Release mit anpassen.
+- Die Versionsnummer steht sonst nur im Header-Kommentar von `mayment-base.css` (Einbindungsbeispiel `ds.mayment.de/vX.Y.Z/`) – beim Release mit anpassen.
 - Commit-Stil: `feat: ... , bump to vX.Y.Z` / `fix: ...`.
-- „Veröffentlichen" = Commit + Tag auf GitHub pushen; jsDelivr liefert dann `@vX.Y.Z` bzw. `@main` aus. Kein npm-Paket.
-- Consumer aktualisieren ist Sache der jeweiligen App (Submodul-Pointer, Kopie, CDN-Tag).
+- „Veröffentlichen" = Commit + Tag auf GitHub pushen; `ds.mayment.de` liefert dann `/vX.Y.Z/` bzw. `main` aus (jsDelivr technisch weiter, aber nicht mehr empfohlen). Kein npm-Paket.
+- Consumer aktualisieren ist Sache der jeweiligen App (Submodul-Pointer, Kopie, Versionspfad).
 
 ## Konventionen & Stolperfallen
 - **Kaskadenregel:** Alle `@media`-Breakpoint-Blöcke (sm:, md:, lg:) stehen am **Ende** von `mayment-base.css`, nach allen Base-Utilities –

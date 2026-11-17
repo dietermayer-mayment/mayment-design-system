@@ -5,8 +5,8 @@
  * Utility-Klassen und Reset-Styles für alle MayMent Apps.
  * Setzt mayment-tokens.css voraus.
  *
- * Einbindung via jsDelivr CDN:
- * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@v1.4.0/mayment-base.css">
+ * Einbindung (MayMent-eigene Auslieferung, ohne Dritt-CDN):
+ * <link rel="stylesheet" href="https://ds.mayment.de/v1.4.0/mayment-base.css">
  *
  * WICHTIG — CSS-Kaskadenregel:
  * Alle @media-Breakpoint-Blöcke (sm:, md:, lg:) stehen am ENDE der Datei,

@@ -13,21 +13,35 @@ Gemeinsame CSS-Basis für alle MayMent Web-Apps und die Homepage.
 
 ## Einbindung
 
-### Option A — via jsDelivr CDN (empfohlen)
+### Option A — über ds.mayment.de (empfohlen)
+
+MayMent liefert das Design System selbst unter `https://ds.mayment.de/` aus (ohne Dritt-CDN,
+es werden keine Besucher-IPs an Dritte übertragen):
+
+| Adresse | Inhalt | Cache |
+|---|---|---|
+| `https://ds.mayment.de/<datei>` | aktueller Stand von `main` | 5 Minuten |
+| `https://ds.mayment.de/vX.Y.Z/<datei>` | fester Stand eines Release-Tags | 1 Jahr, unveränderlich |
+
+Verfügbar sind `mayment-tokens.css`, `mayment-base.css`, `mayment-fonts.css` und `fonts/`.
 
 ```html
 <head>
-  <!-- Schriften: selbst gehostet, siehe Abschnitt „Schriften“ -->
-  <link rel="stylesheet" href="css/mayment-fonts.css">
+  <!-- Schriften (optional, alternativ lokal per @fontsource) -->
+  <link rel="stylesheet" href="https://ds.mayment.de/mayment-fonts.css">
 
   <!-- MayMent Design System -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-tokens.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-base.css">
+  <link rel="stylesheet" href="https://ds.mayment.de/mayment-tokens.css">
+  <link rel="stylesheet" href="https://ds.mayment.de/mayment-base.css">
 
   <!-- App-eigene Styles (immer zuletzt) -->
   <link rel="stylesheet" href="style.css">
 </head>
 ```
+
+Fest auf eine Version: `https://ds.mayment.de/v1.4.0/mayment-base.css` usw.
+Die frühere Einbindung über jsDelivr (`cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@…`)
+funktioniert technisch weiter, wird aber nicht mehr empfohlen (Übertragung an Dritte).
 
 ### Option B — lokale Kopie
 
@@ -59,8 +73,8 @@ muss also neben der CSS-Datei liegen.
 > **DSGVO-Hinweis:** Schriften **nicht** von Google Fonts laden (`fonts.googleapis.com`,
 > `fonts.gstatic.com`). Dabei überträgt der Browser die IP-Adresse jedes Besuchers ohne
 > Einwilligung an Google; das LG München hat das 2022 als Datenschutzverstoß gewertet
-> (Az. 3 O 17493/20). Auch das Laden der Schriften über ein CDN ist eine Übertragung an
-> Dritte – am sichersten liegen die Dateien auf dem eigenen Server der App.
+> (Az. 3 O 17493/20). Auch das Laden der Schriften über ein fremdes CDN ist eine Übertragung an
+> Dritte – deshalb lokal in der App oder über `https://ds.mayment.de/` einbinden.
 
 **Lizenz:** Alle vier Familien stehen unter der SIL Open Font License 1.1; die Lizenztexte
 liegen in `fonts/<familie>/OFL.txt` und müssen beim Kopieren mitgenommen werden.
@@ -134,12 +148,12 @@ Quelle der Dateien: [Fontsource](https://fontsource.org) (`@fontsource/<familie>
 
 | App | Repo | Einbindung |
 |---|---|---|
-| Reifegrad-Check Instandhaltung | `mayment-reifegrad-check-instandhaltung` | jsDelivr `@main` |
-| Feedback-Tool | `mayment-customer-feedback` | jsDelivr `@main` |
-| ECM (EU) 2019/779 Experte | `MayMent-ECM-EU-2019-779-Experte` | jsDelivr `@v1.2.0` |
+| Reifegrad-Check Instandhaltung | `mayment-reifegrad-check-instandhaltung` | `ds.mayment.de` (main) |
+| Feedback-Tool | `mayment-customer-feedback` | `ds.mayment.de` (main) |
+| ECM (EU) 2019/779 Experte | `MayMent-ECM-EU-2019-779-Experte` | `ds.mayment.de/v1.2.0/` |
 
 Dazu kommen interne Anwendungen (als Git-Submodul oder lokale Kopie eingebunden).
-Apps mit `@main` erhalten jede Änderung auf `main` sofort, daher sind Änderungen dort nur additiv.
+Apps auf dem Stand `main` erhalten jede Änderung auf `main` nach wenigen Minuten, daher sind Änderungen dort nur additiv.
 
 ## Brand-Werte anpassen
 

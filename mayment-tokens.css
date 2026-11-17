@@ -5,8 +5,8 @@
  * Brand-Farben, Typografie und Design-Werte für alle MayMent Apps.
  * Diese Datei hier anpassen um das Brand zentral zu steuern.
  *
- * Einbindung via jsDelivr CDN:
- * <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/dietermayer-mayment/mayment-design-system@main/mayment-tokens.css">
+ * Einbindung (MayMent-eigene Auslieferung, ohne Dritt-CDN):
+ * <link rel="stylesheet" href="https://ds.mayment.de/mayment-tokens.css">
  *
  * Schriften selbst hosten: mayment-fonts.css + fonts/ in die App kopieren
  * bzw. per Build einbinden (vor dieser Datei laden).
