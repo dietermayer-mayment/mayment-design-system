@@ -7,17 +7,12 @@ Das Repo ist **öffentlich** (Voraussetzung für die Auslieferung über `https:/
 Auslieferung: `ds.mayment.de` holt alle 5 min `main` und alle Tags aus diesem Repo (nur die drei CSS-Dateien und `fonts/`);
 `/` = Stand `main` (5 min Cache), `/vX.Y.Z/` = Tag (1 Jahr, immutable).
 
-## Wer nutzt es (Stand: November 2026)
-| Projekt | Einbindung | Version |
-|---|---|---|
-| mayment-duktus | Git-Submodul `resources/design-system`, `@import` in `resources/css/app.css` | Submodul-Commit 85f89bf (v1.3.2) |
-| mayment-firmenwissen | Git-Submodul `resources/design-system`, `@import` in `resources/css/app.css` | Submodul-Commit 85f89bf (v1.3.2) |
-| mayment-reisekosten | lokale Kopie `public/css/mayment-*.css` (aktuell inhaltsgleich mit v1.3.2) | – |
-| mayment-customer-feedback | `https://ds.mayment.de/` in `index.html` | main |
-| mayment-reifegrad-check-instandhaltung | `https://ds.mayment.de/` in `index.html` | main |
-| MayMent-ECM-EU-2019-779-Experte | `https://ds.mayment.de/v1.2.0/` in `index.html` | v1.2.0 |
+## Wer nutzt es
+- **Öffentliche Web-Apps** binden das Design System über `https://ds.mayment.de/` ein: teils mit Stand `main`, teils fest auf
+  eine Version (`/vX.Y.Z/`).
+- **Interne Apps** nutzen es als Git-Submodul oder als lokale Kopie.
+- Die vollständige Liste mit Versionen steht nur in der internen Dokumentation (nicht in diesem öffentlichen Repo).
 
-Zusätzlich lokale Kopie in `mayment-duktus/docs/entwurf/design-system/` (Entwurf).
 Folge: Jede Änderung auf `main` wirkt **sofort** in den `main`-Apps (nach ca. 5 min Abholung + 5 min Cache). **Das ist so gewollt** (Entscheidung Dieter Mayer, 15.11.2026): Design-Änderungen sollen ohne Einzelfreigabe direkt in diesen Apps ankommen. Deshalb gilt: Breaking Changes vermeiden, vor dem Push auf `main` die Auswirkung auf die `@main`-Apps bedenken.
 
 ## Tech-Stack & Struktur
@@ -36,7 +31,7 @@ README.md            Einbindung, Farb-/Font-Tabellen, Klassenbeispiele, Liste de
 
 ## Befehle
 Es gibt nichts zu installieren oder zu bauen. Prüfen = eine Test-HTML-Seite mit beiden Dateien im Browser öffnen,
-oder in einer Consumer-App gegentesten (z. B. Submodul in Duktus/Firmenwissen auf den neuen Commit setzen).
+oder in einer nutzenden App gegentesten (z. B. Submodul auf den neuen Commit setzen bzw. die `main`-Apps ansehen).
 
 ## Versionierung / Release
 - SemVer über **Git-Tags** `vX.Y.Z` auf `main` (bisher v1.1.0 … v1.3.2; Tags mit Nachricht, z. B. `git tag -a v1.3.3 -m "..."`).
@@ -55,15 +50,8 @@ oder in einer Consumer-App gegentesten (z. B. Submodul in Duktus/Firmenwissen au
 - Umgebungsvariablen/Secrets: keine im Projekt; Repo ist öffentlich, also niemals Zugangsdaten oder interne Infos committen.
 
 ## Anforderungen & Dokumentation
-Anforderungen kommen von der **MayMent IT-Strategie** und liegen dort. `Nextcloud-dev` ist für Entwickler **nur lesbar** – dort nichts ablegen oder ändern.
-Ein eigener Baubrief/Auftrag für das Design System existiert nicht; relevante Fundstellen:
-- `Nextcloud-dev/00_Gesamt/MayMent_IT-Gesamtarchitektur_V1.6.html` – Grundsatz „Ein Design, ein Betrieb“ (nennt noch v1.2.0)
-- `Nextcloud-dev/00_Gesamt/MayMent_Technologie-Register_V1.0.html` – Eintrag „Design-System (quer)“
-- `Nextcloud-dev/02_Dokumentationen/01_Konzepte/MayMent_Code-Ablage-Konvention_V1.0.html` – Code nur in Git/GitHub-Org `dietermayer-mayment`, nie in Nextcloud; keine Secrets im Repo
-- `Nextcloud-dev/02_Dokumentationen/01_Konzepte/Baubrief_Firmenwissen_V2.6.md` – v1.3.2 als Submodul; HTML-Templates auf Basis des Design Systems
-- `Nextcloud-dev/02_Dokumentationen/01_Konzepte/konzept-sprachassistent.md` – Duktus, Design System v1.3.2 verbindlich
-- `Nextcloud-dev/02_Dokumentationen/01_Konzepte/Baubrief_Buchaltungs_app.md` und `Kickoff_Buchhaltung_V1.0.md` – v1.2.0, Dokument-Rendering mit Design System
-- `Nextcloud-dev/02_Dokumentationen/01_Konzepte/Baukonzept_Nextcloud_V1.0.md` – Nextcloud-Theming nach Design-System-Farben; Logos liegen **nicht** im Repo
+Anforderungen und die interne Dokumentation (Steckbrief, Einbindungen, Technik & Betrieb, Änderungsprotokoll) liegen in der
+internen Dokumentenablage von MayMent, nicht in diesem öffentlichen Repo. Für Entwickler nur lesbar.
 ## Rollen & Zusammenarbeit
 
 - Anforderungen kommen von der **MayMent IT-Strategie** und liegen in der internen Dokumentenablage (nur lesbar für Entwickler).
